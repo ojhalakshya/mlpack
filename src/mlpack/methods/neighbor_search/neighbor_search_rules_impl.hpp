@@ -19,10 +19,10 @@
 namespace mlpack {
 namespace neighbor {
 
-template<typename SortPolicy, typename MetricType, typename TreeType>
-NeighborSearchRules<SortPolicy, MetricType, TreeType>::NeighborSearchRules(
-    const typename TreeType::Mat& referenceSet,
-    const typename TreeType::Mat& querySet,
+template<typename SortPolicy, typename MetricType, typename TreeType, typename eT>
+NeighborSearchRules<SortPolicy, MetricType, TreeType, eT>::NeighborSearchRules(
+    const typename TreeType::template Mat<eT>& referenceSet,
+    const typename TreeType::template Mat<eT>& querySet,
     const size_t k,
     MetricType& metric,
     const double epsilon,
