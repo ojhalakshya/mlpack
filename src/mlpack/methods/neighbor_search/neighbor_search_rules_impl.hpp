@@ -366,7 +366,7 @@ inline double NeighborSearchRules<SortPolicy, MetricType, TreeType, eT>::Rescore
 // Calculate the bound for a given query node in its current state and update
 // it.
 template<typename SortPolicy, typename MetricType, typename TreeType, typename eT>
-inline double NeighborSearchRules<SortPolicy, MetricType, TreeType, typename eT>::
+inline double NeighborSearchRules<SortPolicy, MetricType, TreeType, eT>::
     CalculateBound(TreeType& queryNode) const
 {
   // This is an adapted form of the B(N_q) function in the paper

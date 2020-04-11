@@ -102,8 +102,7 @@ class NeighborSearch
    * @param epsilon Relative approximate error (non-negative).
    * @param metric An optional instance of the MetricType class.
    */
-  template<typename eT>
-  NeighborSearch(MatType<eT> referenceSet,
+  NeighborSearch(MatType referenceSet,
                  const NeighborSearchMode mode = DUAL_TREE_MODE,
                  const double epsilon = 0,
                  const MetricType metric = MetricType());
@@ -195,8 +194,7 @@ class NeighborSearch
    *
    * @param referenceSet New set of reference data.
    */
-  template <typename eT>
-  void Train(MatType<eT> referenceSet);
+  void Train(MatType referenceSet);
 
   /**
    * Set the reference tree to a new reference tree.  The tree is copied by
@@ -226,8 +224,7 @@ class NeighborSearch
    * @param distances Matrix storing distances of neighbors for each query
    *     point.
    */
-  template <typename eT>
-  void Search(const MatType<eT>& querySet,
+  void Search(const MatType& querySet,
               const size_t k,
               arma::Mat<size_t>& neighbors,
               arma::mat& distances);
@@ -326,8 +323,7 @@ class NeighborSearch
   double& Epsilon() { return epsilon; }
 
   //! Access the reference dataset.
-  template <typename eT>
-  const MatType<eT>& ReferenceSet() const { return *referenceSet; }
+  const MatType& ReferenceSet() const { return *referenceSet; }
 
   //! Access the reference tree.
   const Tree& ReferenceTree() const { return *referenceTree; }
@@ -344,8 +340,7 @@ class NeighborSearch
   //! Pointer to the root of the reference tree.
   Tree* referenceTree;
   //! Reference dataset.  In some situations we may be the owner of this.
-  template <typename eT>
-  const MatType<eT>* referenceSet;
+  const MatType* referenceSet;
 
   //! Indicates the neighbor search mode.
   NeighborSearchMode searchMode;

@@ -31,7 +31,7 @@ namespace neighbor {
  * @tparam MetricType The metric to use for computation.
  * @tparam TreeType The tree type to use; must adhere to the TreeType API.
  */
-template<typename SortPolicy, typename MetricType, typename TreeType, typename eT = double>
+template<typename SortPolicy, typename MetricType, typename TreeType, typename eT>
 class NeighborSearchRules
 {
  public:
@@ -159,10 +159,10 @@ class NeighborSearchRules
 
  protected:
   //! The reference set.
-  const typename TreeType::Mat& referenceSet;
+  const typename TreeType::template Mat<eT>& referenceSet;
 
   //! The query set.
-  const typename TreeType::Mat& querySet;
+  const typename TreeType::template Mat<eT>& querySet;
 
   //! Candidate represents a possible candidate neighbor (distance, index).
   typedef std::pair<double, size_t> Candidate;
